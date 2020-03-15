@@ -2,7 +2,7 @@ const form = document.getElementById('form')
 const username = document.getElementById('username')
 const email = document.getElementById('email')
 const password = document.getElementById('password')
-const password2 = document.getElementById('password2')
+const passwordConfirmation = document.getElementById('confirmation')
 
 // Show Input Error
 const showError = (input, message) => {
@@ -42,9 +42,9 @@ const checkRequired = inputArr => {
 // Check Input Length
 const checkLength = (input, min, max) => {
   if(input.value.length < min){
-    showError(input, `${getInputName(input)} must be atleast ${min}`)
+    showError(input, `${getInputName(input)} - Min ${min} Characters`)
   } else if(input.value.length > max){
-    showError(input, `${getInputName(input)} must be less than ${max}`)
+    showError(input, `${getInputName(input)} - Max ${max} Characters`)
   } else {
     showSuccess(input)
   }
@@ -66,9 +66,9 @@ const getInputName = input => {
 form.addEventListener('submit', e => {
   e.preventDefault()
   
-  checkRequired([username, email, password, password2])
+  checkRequired([username, email, password, passwordConfirmation])
   checkLength(username, 3, 15)
   checkLength(password, 6, 20)
   checkEmail(email)
-  passwordMatch(password, password2)
+  passwordMatch(password, passwordConfirmation)
 })
