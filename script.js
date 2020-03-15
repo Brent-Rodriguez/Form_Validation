@@ -50,7 +50,6 @@ const checkLength = (input, min, max) => {
   }
 }
 
-
 // Check Passwords match
 const passwordMatch = (input1, input2) => {
   if(input1.value !== input2.value) {
@@ -58,13 +57,10 @@ const passwordMatch = (input1, input2) => {
   }
 }
 
-
-
 // Get Input name and Uppercase the 1st letter
 const getInputName = input => {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1)
 }
-
 
 // Event Listeners
 form.addEventListener('submit', e => {
